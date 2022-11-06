@@ -1,0 +1,187 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+.header{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url(https://hanoispiritofplace.com/wp-content/uploads/2017/12/hinh-anh-cuon-sach-dep-1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat ;
+    background-position: center;
+    position: relative;
+}    
+nav{
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+nav img{
+    width: 150px;
+}
+nav a{
+    color: #fff;
+    text-decoration: none;
+}
+.nav-links{
+    flex: 1;
+    text-align: right;
+}
+.nav-links ul li,
+.bs{
+    list-style: none;
+    display: inline-block;
+    padding: 0px 12px;
+    position: relative;
+    
+}
+.nav-links ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+.nav-links ul li::after{
+    content: "";
+    width: 0%;
+    height: 2px;
+    background: #f44336;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+.nav-links ul li:hover::after{
+    width: 100%;
+}
+.text-box{
+    width: 90%;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.text-box h1{
+    font-size: 40px;
+}
+.sub-header h1{
+    margin-top: 80px;
+    font-size: 30px;
+}
+/* dangnhap */
+.sub3-header{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.3)), url(https://hanoispiritofplace.com/wp-content/uploads/2017/12/hinh-anh-cuon-sach-dep-3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat ;
+    background-position: center;
+    position: relative;
+    
+}
+.sign_up{
+    width: 400px;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,0.3) ;
+    background: #fff;
+    padding: 20px;
+    margin: 4% auto 0;
+    text-align: center;
+    border-radius: 15px;
+    
+}
+.sign_up h1{
+    color: #f44336;
+    margin-bottom: 30px;
+}
+.input_box{
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    border: 1px solid #999;
+    outline: none;
+}
+button{
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+}
+.sign-btn{
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 15px;
+    background-color: #f44336;
+}
+.sign-fb{
+    border-radius: 15px;
+    background-color: #4267b2;
+}
+.a-btn{
+    text-decoration: none;
+
+}
+.hr{
+    margin-left: 33px;
+    width: 80%;
+}
+.or{
+    background: #fff;
+    width: 30px;
+    margin: -30px auto 10px;
+}
+.fix{
+    color: #f44336;
+    font-size: 40px;
+    margin: auto;
+}
+.sign-btn:hover
+{
+    background-color: rgba(253, 83, 5, 0.5);
+}
+.sign-fb:hover{
+    background-color: rgba(82, 53, 248, 0.5);
+}
+/* dangki*/
+.input_box-1{
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    border: 1px solid #999;
+    outline: none;
+}
+.sign_up-1{
+    top: 50px;
+    width: 600px;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,0.3) ;
+    background: #fff;
+    padding: 20px;
+    margin: 1% auto 0;
+    text-align: center;
+    border-radius: 15px;
+    
+}
+.sign_up-1-a{
+    text-decoration: none;  
+}
+
+.out{
+    color: red
+}

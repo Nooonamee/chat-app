@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng nhập</title>
     <link href="./dangnhap.css" rel="stylesheet" type="text/css"/>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -18,15 +17,20 @@
         <div class="sign_up">
             <i class="fa-solid fa-user fix"></i>
             <h1>Đăng nhập</h1>
-            <form action="formDn" method="post">
-                <input type="text" class="input_box" placeholder="Tên đăng nhập" name="Tendn" required>
-                <input type="password" class="input_box" placeholder="Mật khẩu" name="Matkhau" required>
-                <input type = "submit" value = "Đăng nhập" id = "submit" class="sign-btn" ><br>
-                <button type="button" class="sign-fb">Đăng nhập với Facebook</button>
-                <p>Bạn đã có tài khoản chưa? <a href="dangki.html" class="a-btn">Đăng kí</a></p>
+            <form action="/" method="post">
+                <input type="text" class="input_box username" placeholder="Tên đăng nhập" name="username" required>
+                <input type="password" class="input_box password" placeholder="Mật khẩu" name="password" required>
+                <input type="submit" class="sign-btn" value = "Đăng nhập"><br>
             </form>
+            <button type="button" class="sign-fb">Đăng nhập với Facebook</button>
+            <p>Bạn đã có tài khoản chưa? <a href="signup" class="a-btn">Đăng kí</a></p>
         </div>
         <h1 class="ll"></h1>
     </section>
+    <script src="/socket.io/socket.io.js"></script>
+      <script>
+        const socket = io();
+      </script>
+      <script src="./dangnhap.js"></script>
 </body>
 </html>

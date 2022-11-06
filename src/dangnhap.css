@@ -128,6 +128,7 @@ button{
     cursor: pointer;
     border-radius: 15px;
     background-color: #f44336;
+    text-align: center;
 }
 .sign-fb{
     border-radius: 15px;

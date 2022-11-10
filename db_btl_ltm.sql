@@ -17,7 +17,7 @@ CREATE TABLE `clients` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `DEPARTMENT`
+-- Dumping data for table `clients`
 --
 
 LOCK TABLES `clients` WRITE;

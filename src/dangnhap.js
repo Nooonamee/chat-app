@@ -7,7 +7,7 @@ var username = $(".username")
 var password = $(".password")
 
 // form.addEventListener('submit', (e) => {
-//     // e.preventDefault();
+//     e.preventDefault();
 //     if (username.value) {
 //         socket.emit('user',{
 //             username: username.value,

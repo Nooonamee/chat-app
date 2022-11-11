@@ -29,8 +29,8 @@
 					</div>
 					<div class="card-body contacts_body">
 						<ul class="contacts">
-						<li class="active">
-							<div class="d-flex bd-highlight">
+						<li class="room active" id="1">
+							<div class="d-flex bd-highlight" vinh>
 								<div class="img_cont">
 									<img src="https://kynguyenlamdep.com/wp-content/uploads/2022/06/anh-gai-xinh-cuc-dep.jpg" class="rounded-circle user_img">
 									<span class="online_icon"></span>
@@ -41,8 +41,8 @@
 								</div>
 							</div>
 						</li>
-						<li>
-							<div class="d-flex bd-highlight">
+						<li class="room" id="2">
+							<div class="d-flex bd-highlight" vinh>
 								<div class="img_cont">
 									<img src="https://taimienphi.vn/tmp/cf/aut/anh-gai-xinh-1.jpg" class="rounded-circle user_img">
 									<span class="online_icon offline"></span>
@@ -52,7 +52,7 @@
 									<p>Văn Việt đã online 7 phút trước</p>
 								</div>
 							</div>
-						</li>
+						<!-- </li>
 						<li>
 							<div class="d-flex bd-highlight">
 								<div class="img_cont">
@@ -88,7 +88,7 @@
 									<p>Hồng Diễm online 30 phút trước</p>
 								</div>
 							</div>
-						</li>
+						</li> -->
 						</ul>
 					</div>
 					<div class="card-footer"></div>
@@ -102,7 +102,7 @@
 									<span class="online_icon"></span>
 								</div>
 								<div class="user_info">
-									<span>Chat với Quang Vinh</span>
+									<span id="chat-width">Chat với Quang Vinh</span>
 									<p>1767 tin nhắn</p>
 								</div>
 								<div class="video_cam">
@@ -145,5 +145,6 @@
             const socket = io();
         </script>
         <script src="./client.js"></script>
+        <script src="./main.js"></script>
 	</body>
 </html>

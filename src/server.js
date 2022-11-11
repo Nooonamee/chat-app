@@ -12,8 +12,7 @@ function server(io) {
         });
         socket.on('create', (room, id) => {
             socket.join(room);
-            console.log("joined "+room)
-            var sql_msg = `SELECT * FROM chat_app.messages where client_from=${id}`;
+            var sql_msg = `SELECT * FROM chat_app.messages` // where client_from=${id}`;
             var sql_room = `SELECT room FROM chat_app.client_room where client=${id}`;
             db.query(sql_room, (err, results) => {
                 if (err) throw err;

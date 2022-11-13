@@ -8,7 +8,7 @@ function server(io) {
                 if (err) throw err;
                 console.log(results)
             });
-            io.emit('chat message', msg.mess, msg.room, msg.client);
+            io.emit('chat message', msg, msg.room);
         });
         socket.on('create', (room, id) => {
             socket.join(room);
@@ -22,6 +22,13 @@ function server(io) {
                 if (err) throw err;
                 io.to(room).emit("get_old_messages", results);
             });
+            socket.on("get_client_in_room", (r)=>{
+                var sql_c = `SELECT client FROM chat_app.client_room where room=${r}`;
+                db.query(sql_c, (err, results) => {
+                    if (err) throw err;
+                    io.to(room).emit("res_c"+r, results);
+                });
+            })
         });
     });
 }

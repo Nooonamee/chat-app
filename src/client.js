@@ -18,8 +18,15 @@ form.addEventListener('submit', (e) => {
     console.log(today)
     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()
         // +" "+today.getSeconds()+":"+today.getMinutes()+":"+today.getHours();
-    e.preventDefault();
+        e.preventDefault();
     if (input.value) {
+        msgs.push({
+            client_from: usercurent.client_id,
+            date_send: date,
+            mess: input.value,
+            mess_id: 0,
+            room_to: room
+        })
         socket.emit('chat message', {
             nickname: usercurent.nickname,
             client: usercurent.client_id,
@@ -115,13 +122,14 @@ function render_msg() {
             msgs.forEach(msg => {
                 if (msg.room_to == room) {
                     dem++
-                    // console.log(msg)
+                    var date = new Date(msg.date_send)
+                    date = date.getDate()+'-'+(date.getMonth())+'-'+date.getFullYear();
                     if (usercurent.client_id == msg.client_from) {
                         content =
                             `<div class="d-flex justify-content-end mb-4">
                                 <div class="msg_cotainer_send">
                                     ${msg.mess}
-                                    <span class="msg_time_send">${msg.date_send}</span>
+                                    <span class="msg_time_send">${date}</span>
                                 </div>
                                 <div class="img_cont_msg">
                                     <img src="./views/imgs/${msg.client_from}.jpg" class="rounded-circle user_img_msg">
@@ -135,7 +143,7 @@ function render_msg() {
                                 </div>
                                 <div class="msg_cotainer">
                                     ${msg.mess}
-                                    <span class="msg_time">${msg.date_send}</span>
+                                    <span class="msg_time">${date}</span>
                                 </div>
                             </div>`
                     messages.innerHTML += content;

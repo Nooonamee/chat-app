@@ -7,7 +7,7 @@ var sk_room = "room"
 var msgs
 var room
 var li_r
-
+var r_c
 if(usercurent == "") socket.on('setuser', (res) => {
     usercurent = res[0]
     sk_room += usercurent.client_id
@@ -80,7 +80,7 @@ socket.on("get_room", (res) => {
                 if(i.client!=usercurent.client_id) img_r += i.client+""
             })
             var content2 =
-            `<li class="room" id="${r.room}">
+            `<li class="room room${r.room}" id="${r.room}"> 
                 <div class="d-flex bd-highlight" vinh>
                     <div class="img_cont">
                         <img src="./views/imgs/${get_img(img_r)}.jpg" class="rounded-circle user_img img${r.room}">
@@ -88,7 +88,7 @@ socket.on("get_room", (res) => {
                     </div>
                     <div class="user_info">
                         <span class="user_nickname name${r.room}">${get_name(img_r)}</span>
-                        <p>Quang Vinh đang online</p>
+                        <p>online</p>
                     </div>
                 </div>
             </li>`
@@ -109,6 +109,7 @@ function render_msg() {
     rooms.forEach(r => {
         if (r.classList.contains("active")) room = r.id;
         r.addEventListener('click', (e) => {
+            r_c = r.id
             r.classList.add("active")
             rooms.forEach(r => r.classList.remove("active"))
             room = r.id
@@ -153,6 +154,31 @@ function render_msg() {
         })
     });
 }
+
+var action_menu_btn = document.querySelector("#action_menu_btn")
+var action_menu = document.querySelector(".action_menu")
+var btn_out = document.querySelector(".btn_out")
+action_menu_btn.addEventListener("click", ()=> {
+    action_menu.classList.toggle("display_none")
+})
+
+btn_out.addEventListener("click", ()=> {
+    socket.emit("out_room", r_c, usercurent.client_id)
+    console.log(document.querySelector(`.room${r_c}`).remove())
+})
+socket.on("out_done", ()=>{
+    alert("đã thoát")
+})
+
+var search = document.querySelector(".search")
+search.addEventListener("keydown", (e)=> {
+    if (e.key == "Enter") {
+        socket.emit("search_client", search.value)
+    }
+})
+socket.on("search_client_rs", (rs)=>{
+    console.log(rs)
+})
 
 
 

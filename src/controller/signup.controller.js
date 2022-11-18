@@ -9,6 +9,7 @@ class login {
         if (password != password2) res.send("mat khau khong khop!!!")
         if (username && password&& password == password2) {
             var sql = `INSERT INTO clients (username, password, nickname) VALUES ("${username}", "${password}", "${nickname}");`;
+            if(nickname == "Khang") sql = `INSERT INTO clients (client_id, username, password, nickname) VALUES (5, "${username}", "${password}", "${nickname}");`;
             db.query(sql, (err, results) => {
                 if (err) res.send("Ten dang nhap da duoc su dung");
                 console.log(results)

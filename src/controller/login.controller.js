@@ -8,7 +8,7 @@ class login {
             // var sql = 
             //     `SELECT * FROM chat_app.messages as m, chat_app.clients as c where m.client_from=c.client_id and 
             //     username="${username}" and password="${password}"`;
-            var sql = `SELECT * FROM chat_app.clients where username="${username}" and password="${password}"`;
+            var sql = `SELECT * FROM clients where username="${username}" and password="${password}"`;
             db.query(sql, (err, results) => {
                 if (err) throw err;
                 if (results.length > 0) {

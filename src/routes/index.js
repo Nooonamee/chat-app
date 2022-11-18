@@ -9,7 +9,7 @@ function route(app, io, dirname) {
         res.sendFile(dirname + '/src/views/dangki.html');
     });
     app.get('/', (req, res) => {
-        if (req.cookies.loggedin) {
+        if (req.cookies.loggedin == "true") {
             res.sendFile(dirname + '/src/views/index.html');
             io.on('connection', (socket) => {
                 socket.emit('setuser', req.cookies.user)

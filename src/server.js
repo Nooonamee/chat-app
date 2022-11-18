@@ -36,13 +36,52 @@ function server(io) {
                     io.to(room).emit("out_done");
                 });
             })
-            socket.on("search_client", (key)=> {
-                var sql_c = `SELECT * FROM clients where nickname like "%${key}%";`;
+            socket.on("search_client", (key, id)=> {
+                var sql_c = `SELECT * FROM clients where nickname like "%${key}%" and client_id <> ${id};`;
                 db.query(sql_c, (err, results) => {
                     if (err) throw err;
                     io.to(room).emit("search_client_rs", results);
                 });
             }) 
+            socket.on("add_f", (id1, id2)=> {
+                var room_id = id1+""+id2
+                if (id1>id2) room_id = id2+""+id1 
+                const promise = new Promise((resolve)=>{
+                    db.query(`INSERT INTO rooms (room_id,name) VALUES(${room_id},"");`, (err) => {
+                        if (err) throw err;
+                        resolve()
+                    });
+                })
+                promise.then(()=>{
+                    db.query(`INSERT INTO client_room(client,room) VALUES(${id1},${room_id});`, (err) => {
+                        if (err) throw err;
+                    });
+                }).then(()=>{
+                    db.query(`INSERT INTO client_room(client,room) VALUES(${id2},${room_id});`, (err) => {
+                        if (err) throw err;
+                    });
+                })
+                io.to(room).emit("add_done", id2, room_id);
+            }) 
+            socket.on("create_room_1-n", (members) => {
+                var room_id = ""
+                members.forEach(element => {
+                    room_id+=element
+                });
+                const promise = new Promise((resolve)=>{
+                    db.query(`INSERT INTO rooms (room_id,name) VALUES(${room_id},"");`, (err) => {
+                        if (err) throw err;
+                        resolve()
+                    });
+                })
+                promise.then(()=>{
+                    members.forEach(element => {
+                        db.query(`INSERT INTO client_room(client,room) VALUES(${element},${room_id});`, (err) => {
+                            if (err) throw err;
+                        });
+                    });
+                })
+            })
         });
     });
 }

@@ -230,3 +230,51 @@ margin-bottom: 15px !important;
     position: absolute;
     right: 0;
 }
+
+.modal {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.4);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+}
+
+.modal__body {
+    z-index: 1;
+    margin: auto;
+    margin-top: 100px;
+    height: 430px;
+    width: 400px;
+    background-color: #fff;
+    border-radius: 3px;
+    overflow: hidden;
+    color: #000;
+}
+
+.rs {
+    text-decoration: none;
+    list-style-type: none;
+    display: flex;
+    position: relative;
+    margin: 10px 0;
+}
+
+.rs_user p {
+    font-size: 10px;
+    color: #4cd137;
+    margin-top: 5px;
+}
+
+.rs .user_nickname{
+    border-top: 50px;
+    font-size: 25px;
+}
+
+.btn_add {
+    position: absolute;
+    height: 35px;
+    right: 10px;
+    top: 20px;
+}

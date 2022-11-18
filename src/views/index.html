@@ -51,9 +51,9 @@
 							<div class="action_menu display_none">
 								<ul>
 									<!-- <li><i class="fas fa-user-circle"></i> View profile</li> -->
-									<li><i class="fas fa-plus"></i>Thêm thành viên</li>
-									<li><i class="fas fa-users"></i>Tạo nhóm với bạn này</li>
-									<li class="btn_out"><i class="fas fa-ban"></i> Thoát nhóm</li>
+									<li class="add_mem"><i class="fas fa-user-plus"></i>Thêm thành viên</li>
+									<li class="create_room_with"><i class="fas fa-users"></i>Tạo nhóm với</li>
+									<li class="btn_out"><i class="fas fa-sign-out-alt"></i> Thoát nhóm</li>
 								</ul>
 							</div>
 						</div>
@@ -77,6 +77,11 @@
 				</div>
 			</div>
 		</div>
+		<div class="modal">
+			<button type="submit" onclick="handleOff()">X</button>
+			<div class="modal__body">
+			</div>
+		</div>
 		<img src="./views/imgs/1.jpg" alt="" style="display: none;">
 		<img src="./views/imgs/2.jpg" alt="" style="display: none;">
 		<img src="./views/imgs/3.jpg" alt="" style="display: none;">
@@ -89,7 +94,7 @@
 				if(id==3) return "Linh"
 				if(id==4) return "Viet"
 				if(id==5) return "Khang"
-				if(id>5 && id<10) return "Nam"
+				if(id>5 && id<10) return "Linh"
 				var str = id+""
 				var rs = get_name(str.charAt(0))
 				for(let i = 1;i<str.length;i++) {
@@ -98,7 +103,8 @@
 				return rs
 			}			
 			function get_img(id) {
-				if(id>3) return "100"
+				if(id>10) return "100"
+				if(id>3) return "0"
 				return id
 			}
         </script>
